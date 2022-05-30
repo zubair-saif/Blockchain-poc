@@ -1,6 +1,28 @@
+import { Row, Card, Col, Container } from "react-bootstrap";
 const Transactions = () => {
     return (
-        <h1>Transactions</h1>
+        <Container className="my-4">
+            <h1>latest transactions
+            </h1>
+            <Row xs={1} md={2} className="g-4">
+
+                {Array.from({ length: 4 }).map((_, idx) => (
+                    <Col>
+                        <Card className="shadow border-0">
+                            <Card.Img variant="top" src="holder.js/100px160" />
+                            <Card.Body>
+                                <Card.Title>Card title</Card.Title>
+                                <Card.Text>
+                                    This is a longer card with supporting text below as a natural
+                                    lead-in to additional content. This content is a little bit longer.
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                ))}
+            </Row>
+        </Container>
+
     )
 }
 export default Transactions;
