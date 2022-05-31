@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
-
+import { TransactionContext } from "../context/TransactionsContext";
 const Navbars = () => {
+    const { currentAccount, connectWallet } = useContext(TransactionContext);
 
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -14,7 +15,10 @@ const Navbars = () => {
                         <Nav.Link href="#exchange">Exchange</Nav.Link>
                     </Nav>
                     <Nav>
-                        <Nav.Link href="#deets">Connect Wallet</Nav.Link>
+                        {!currentAccount && (
+                            <Nav.Link onClick={connectWallet} type="button">Connect Wallet</Nav.Link>
+                        )}
+
 
                     </Nav>
                 </Navbar.Collapse>
