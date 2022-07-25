@@ -3,19 +3,22 @@ import { TransactionContext } from "../context/TransactionsContext";
 import { useContext } from "react";
 const Transactions = () => {
     const { transactions, currentAccount } = useContext(TransactionContext);
-
+    console.log('transactions', transactions)
     return (
-        <Container className="my-4">
 
-            {currentAccount ? (
-                <h3>
-                    Latest Transactions
-                </h3>
-            ) : (
-                <h3>
-                    Connect your account to see the latest transactions
-                </h3>
-            )}
+
+        <Container Container className="my-4" >
+
+            {
+                currentAccount ? (
+                    <h3>
+                        Latest Transactions
+                    </h3 >
+                ) : (
+                    <h3>
+                        Connect your account to see the latest transactions
+                    </h3>
+                )}
             <Row xs={1} md={2} className="g-4">
 
                 {Array.from({ length: 4 }).map((_, idx) => (
@@ -38,7 +41,7 @@ const Transactions = () => {
                     </Col>
                 ))}
             </Row>
-        </Container>
+        </Container >
 
     )
 }

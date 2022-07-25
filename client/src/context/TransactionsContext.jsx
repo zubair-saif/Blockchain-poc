@@ -32,7 +32,7 @@ export const TransactionsProvider = ({ children }) => {
                 const transactionsContract = createEthereumContract();
 
                 const availableTransactions = await transactionsContract.getAllTransactions();
-
+                console.log('availableTransactions', availableTransactions)
                 const structuredTransactions = availableTransactions.map((transaction) => ({
                     addressTo: transaction.receiver,
                     addressFrom: transaction.sender,
@@ -58,7 +58,6 @@ export const TransactionsProvider = ({ children }) => {
             if (!ethereum) return alert("Please install MetaMask.");
 
             const accounts = await ethereum.request({ method: "eth_accounts" });
-
             if (accounts.length) {
                 setCurrentAccount(accounts[0]);
 
